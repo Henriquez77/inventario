@@ -45,7 +45,7 @@ class Productos {
             return false;
         }
     }  
-    public function Insert($titulo,$talla,$marca,$estilo,$precio,$genero,$cantidad,$id){
+    public function InsertZapatos($titulo,$talla,$marca,$estilo,$precio,$genero,$cantidad,$id){
         try {
             // Preparar la sentencia SQL
             $sql = "INSERT INTO Productos (titulo, talla, marca, estilo, precio, genero, cantidaddisponible, ID_Categoria) VALUES (:titulo, :talla, :marca, :estilo, :precio, :genero, :cantidad, :ID_Categoria)";

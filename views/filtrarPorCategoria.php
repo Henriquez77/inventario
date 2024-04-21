@@ -1,5 +1,5 @@
 <?php
-include_once('../Productos.php');
+include_once('../DAO/Productos.php');
 // Verificar si ambos parámetros 'categoria' y 'columnas' están presentes y no están vacíos
 if (isset($_GET['categoria']) && !empty($_GET['categoria'])) {
     $categoria = $_GET['categoria'];
@@ -49,6 +49,7 @@ $productosList = $productos->GetByCategoria($categoria);
                                     Filtrar por categorías
                                 </button>
                                 <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="productos.php">Mostrar Todo</a></li>
                                     <li><a class="dropdown-item" href="filtrarPorCategoria.php?categoria=zapatos">Zapatos</a></li>
                                     <li><a class="dropdown-item" href="filtrarPorCategoria.php?categoria=lociones">Lociones</a></li>
                                     <li><a class="dropdown-item" href="filtrarPorCategoria.php?categoria=mochilas">Mochilas</a></li>
@@ -63,35 +64,35 @@ $productosList = $productos->GetByCategoria($categoria);
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Titulo</th>
-                                <th>Tipo</th>
-                                <th>Precio</th>
-                                <th>Talla</th>
-                                <th>Tamaño</th>
-                                <th>Género</th>
-                                <th>Marca</th>
-                                <th>Fragancia</th>
-                                <th>Estilo</th>
-                                <th>Cantidad Disponible</th>
-                                <th>Categoría</th>
+                                <th id="ID_Producto">ID Producto</th>
+                                <th id="Titulo">Título</th>
+                                <th id="Tipo">Tipo</th>
+                                <th id="Precio">Precio</th>
+                                <th id="Talla">Talla</th>
+                                <th id="Tamaño">Tamaño</th>
+                                <th id="Genero">Género</th>
+                                <th id="Marca">Marca</th>
+                                <th id="Fragancia">Fragancia</th>
+                                <th id="Estilo">Estilo</th>
+                                <th id="CantidadDisponible">Cantidad Disponible</th>
+                                <th id="CategoriaNombre">Categoría</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($productosList as $producto) : ?>
                                 <tr>
-                                    <td><?= $producto['ID_Producto'] ?></td>
-                                    <td><?= $producto['Titulo'] ?></td>
-                                    <td><?= $producto['Tipo'] ?></td>
-                                    <td><?= $producto['Precio'] ?></td>
-                                    <td><?= $producto['Talla'] ?></td>
-                                    <td><?= $producto['Tamaño'] ?></td>
-                                    <td><?= $producto['Genero'] ?></td>
-                                    <td><?= $producto['Marca'] ?></td>
-                                    <td><?= $producto['Fragancia'] ?></td>
-                                    <td><?= $producto['Estilo'] ?></td>
-                                    <td><?= $producto['CantidadDisponible'] ?></td>
-                                    <td><?= $producto['CategoriaNombre'] ?></td>
+                                    <td id="ID_Producto"><?= $producto['ID_Producto'] ?></td>
+                                    <td id="Titulo"><?= $producto['Titulo'] ?></td>
+                                    <td id="Tipo"><?= $producto['Tipo'] ?></td>
+                                    <td id="Precio"><?= $producto['Precio'] ?></td>
+                                    <td id="Talla"><?= $producto['Talla'] ?></td>
+                                    <td id="Tamaño"><?= $producto['Tamaño'] ?></td>
+                                    <td id="Genero"><?= $producto['Genero'] ?></td>
+                                    <td id="Marca"><?= $producto['Marca'] ?></td>
+                                    <td id="Fragancia"><?= $producto['Fragancia'] ?></td>
+                                    <td id="Estilo"><?= $producto['Estilo'] ?></td>
+                                    <td id="CantidadDisponible"><?= $producto['CantidadDisponible'] ?></td>
+                                    <td id="CategoriaNombre"><?= $producto['CategoriaNombre'] ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -100,7 +101,7 @@ $productosList = $productos->GetByCategoria($categoria);
             </section>
         </div>
     </main>
-    
+
     <!-- <footer>
         <div class="container">
             <p>&copy; 2024 Sistema de Inventario</p>
@@ -109,6 +110,7 @@ $productosList = $productos->GetByCategoria($categoria);
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/scriptProductos.js"></script>
+    <script src="../js/scriptFiltros.js"></script>
 </body>
 
 </html>
